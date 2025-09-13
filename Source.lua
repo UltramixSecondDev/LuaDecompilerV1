@@ -5,13 +5,13 @@ local playerGui = player:WaitForChild("PlayerGui")
 
 -- ScreenGui
 local gui = Instance.new("ScreenGui")
-gui.Name = "DecompilerViewerV1"
+gui.Name = "DecompilerIDE V1.3"
 gui.Parent = playerGui
 gui.ResetOnSpawn = false
 
 -- Main Frame
 local main = Instance.new("Frame", gui)
-main.Size = UDim2.new(0, 750, 0, 450)
+main.Size = UDim2.new(0, 1150, 0, 450)
 main.Position = UDim2.new(0.5, -375, 0.5, -225)
 main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 main.BorderSizePixel = 1
@@ -20,8 +20,8 @@ main.BorderSizePixel = 1
 local header = Instance.new("TextLabel", main)
 header.Size = UDim2.new(1, 0, 0, 30)
 header.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-header.Text = "ScriptViewerV8 Decompiler"
-header.TextSize = 8
+header.Text = "Decompiler V1.2"
+header.TextSize = 7
 header.TextXAlignment = Enum.TextXAlignment.Left
 header.TextColor3 = Color3.fromRGB(255, 255, 255)
 local padding = Instance.new("UIPadding", header)
@@ -48,8 +48,10 @@ searchBox.PlaceholderText = "Search Script..."
 searchBox.TextSize = 11
 searchBox.ClearTextOnFocus = false
 searchBox.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+searchBox.TextColor3 = Color3.fromRGB(240, 240, 240)
+searchBox.Text = ""
 
--- Left list (scripts)
+-- Left lis
 local scroll = Instance.new("ScrollingFrame", main)
 scroll.Size = UDim2.new(0.4, -10, 1, -70)
 scroll.Position = UDim2.new(0, 5, 0, 65)
@@ -94,13 +96,14 @@ codeBox.Size = UDim2.new(1, -10, 0, 100)
 codeBox.Position = UDim2.new(0, 5, 0, 5)
 codeBox.ClearTextOnFocus = false
 codeBox.MultiLine = true
-codeBox.Font = Enum.Font.Code
+codeBox.Font = Enum.Font.RobotoMono
 codeBox.TextSize = 13
 codeBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 codeBox.BackgroundTransparency = 1
 codeBox.TextXAlignment = Enum.TextXAlignment.Left
 codeBox.TextYAlignment = Enum.TextYAlignment.Top
-codeBox.Text = "ScriptVisualizer"
+codeBox.Text = "-- The text box will not show the entire script, once copied you will have the complete script "
+codeBox.Interactable = false
 
 -- Buttons
 local copyBtn = Instance.new("TextButton", main)
@@ -125,7 +128,7 @@ end)
 
 -- Random decompiler messages
 local MemeStrings = {
-    " boo 👻", " Exceeded decompiler timeout.", " DECOMPILED BY ADVANCED DECOMPILER V3",
+    " boo 👻", " Exceeded decompiler timeout.", " DECOMPILED BY ULTRAMIXS DECOMPILER",
     " DISASSEMBLED...", " Decompiled with a cool decompiler.",
     " 𝓓𝓮𝓬𝓸𝓶𝓹𝓲𝓵𝓮𝓭 𝓫𝔂 𝓯𝓻𝓮𝓪𝓴𝔂 𝓭𝓮𝓬𝓸𝓶𝓹𝓲𝓵𝓮𝓻",
     "Decompiler is slow, removed right now :(", " NOTE: Currently in beta!", " params : ...",
@@ -174,9 +177,9 @@ local function agregarScriptBoton(scr)
 
     -- Icono del script
     local icon = Instance.new("ImageLabel")
-    icon.Size = UDim2.new(0, 40, 0, 40)
-    icon.Position = UDim2.new(0.5, -20, 0, 5)
-    icon.Image = "rbxassetid://98857973862221"
+    icon.Size = UDim2.new(0, 50, 0, 50)
+    icon.Position = UDim2.new(0.5, -25, 0, 5)
+    icon.Image = "rbxassetid://8253773978"
     icon.BackgroundTransparency = 1
     icon.Parent = btn
 
